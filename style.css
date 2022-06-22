@@ -1,0 +1,509 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--very-light-grayish-blue);
+  padding: 0;
+  margin: 0;
+  font-family: Montserrat, sans-serif;
+  font-size: 15px;
+  text-align: center;
+}
+
+:root {
+  --start-gradient: hsl(236, 72%, 79%);
+  --end-gradient: hsl(237, 63%, 64%);
+  --very-light-grayish-blue: hsl(240, 78%, 98%);
+  --light-grayish-blue: hsl(234, 14%, 74%);
+  --grayish-blue: hsl(233, 13%, 49%);
+  --dark-grayish-blue: hsl(232, 13%, 33%);
+}
+
+.toggle {
+  --width: 40px;
+  --height: calc(var(--width) / 2);
+  --border-radius: calc(var(--height) / 2);
+  display: inline-block;
+  cursor: pointer;
+  position: relative;
+}
+
+.toggle::before {
+  content: "Annually";
+  position: absolute;
+  left: -5.5rem;
+  color: var(--light-grayish-blue);
+}
+
+.toggle::after {
+  content: "Monthly";
+  position: absolute;
+  right: -5rem;
+  bottom: 0;
+  color: var(--light-grayish-blue);
+}
+
+.toggle__input {
+  display: none;
+}
+
+.toggle__fill {
+  position: relative;
+  width: var(--width);
+  height: var(--height);
+  border-radius: var(--border-radius);
+  background-image: linear-gradient(
+    to right,
+    hsl(236, 72%, 79%),
+    hsl(237, 63%, 64%)
+  );
+  transition: background 0.2s;
+}
+
+.toggle__fill::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: var(--height);
+  width: var(--height);
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  border-radius: var(--border-radius);
+  transition: transform 0.2s;
+}
+
+.toggle__input:checked ~ .toggle__fill::after {
+  transform: translateX(var(--height));
+}
+
+main {
+  height: 100vh;
+  background-image: url("./images/bg-bottom.svg"), url("./images/bg-top.svg");
+  background-repeat: no-repeat;
+  background-position: bottom left, top right;
+  min-width: 514px;
+}
+
+.hero-section {
+  padding-top: 3rem;
+  padding-bottom: 4rem;
+}
+
+h1 {
+  margin-bottom: 2rem;
+  color: var(--grayish-blue);
+}
+
+.basic-plan,
+.professional-plan,
+.master-plan {
+  width: 500px;
+  display: inline-block;
+  box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.2);
+}
+
+.basic-plan,
+.master-plan {
+  top: 50px;
+}
+
+/***** BASIC PLAN *****/
+
+.basic-plan {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  color: var(--grayish-blue);
+  padding-bottom: 2rem;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  background-color: #fff;
+  right: -0.2rem;
+  position: relative;
+}
+
+.basic-plan > p {
+  border-bottom: 1px solid lightgray;
+  width: 90%;
+  margin-inline: auto;
+  padding-bottom: 1rem;
+}
+
+.basic-price {
+  padding-left: 2rem;
+  padding-right: 3rem;
+  padding-bottom: 1rem;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 4rem;
+  color: var(--dark-grayish-blue);
+}
+
+.basic-annual-sign {
+  font-size: 2.5rem;
+  position: absolute;
+  left: 100px;
+  top: 80px;
+  color: var(--dark-grayish-blue);
+}
+
+.basic-monthly-sign {
+  left: 130px;
+}
+
+.basic-plan a {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.7rem 6rem;
+  border-radius: 5px;
+  background-image: linear-gradient(
+    to right,
+    hsl(236, 72%, 79%),
+    hsl(237, 63%, 64%)
+  );
+  text-decoration: none;
+  text-transform: uppercase;
+  color: var(--very-light-grayish-blue);
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+  border-width: 2px;
+  border-style: solid;
+  transition-duration: 250ms;
+}
+
+.basic-plan a:hover {
+  background-image: none;
+  background-color: #fff;
+  border: 2px solid hsl(237, 63%, 64%);
+  color: hsl(237, 63%, 64%);
+  transition-duration: 250ms;
+}
+
+.basic-monthly {
+  display: none;
+  padding-left: 2rem;
+  padding-right: 3rem;
+  padding-bottom: 1rem;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 4rem;
+  color: var(--dark-grayish-blue);
+}
+
+/***** END BASIC PLAN *****/
+
+/***** PROFESSIONAL PLAN *****/
+.professional-plan {
+  background-image: linear-gradient(
+    to bottom right,
+    hsl(236, 72%, 79%),
+    hsl(237, 63%, 64%)
+  );
+  border-radius: 10px;
+  padding-bottom: 2rem;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  color: #fff;
+  height: 500px;
+  position: relative;
+}
+
+.professional-plan > * {
+  position: relative;
+  top: 50px;
+}
+
+.professional-plan > p {
+  border-bottom: 1px solid var(--light-grayish-blue);
+  width: 90%;
+  margin-inline: auto;
+  padding-bottom: 1rem;
+}
+
+.professional-price {
+  padding-left: 2rem;
+  padding-right: 3rem;
+  padding-bottom: 1rem;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 4rem;
+}
+
+.professional-annual-sign {
+  font-size: 2.5rem;
+  position: absolute;
+  left: 90px;
+  top: 130px;
+  color: #fff;
+}
+.pro-monthly-sign {
+  left: 120px;
+}
+
+.professional-plan a {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.7rem 6rem;
+  border-radius: 5px;
+  background-color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: hsl(237, 63%, 64%);
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+  border-width: 2px;
+  border-style: solid;
+  transition-duration: 250ms;
+}
+
+.professional-plan a:hover {
+  background-color: hsl(237, 63%, 64%);
+  color: #fff;
+}
+
+.professional-monthly {
+  display: none;
+  padding-left: 2rem;
+  padding-right: 3rem;
+  padding-bottom: 1rem;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 4rem;
+}
+
+/***** END PROFESSIONAL PLAN *****/
+
+/***** MASTER PLAN *****/
+.master-plan {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  color: var(--grayish-blue);
+  padding-bottom: 2rem;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  background-color: #fff;
+  left: -0.2rem;
+  position: relative;
+}
+
+.master-plan > p {
+  border-bottom: 1px solid lightgray;
+  width: 90%;
+  margin-inline: auto;
+  padding-bottom: 1rem;
+}
+
+.master-price {
+  padding-left: 2rem;
+  padding-right: 3rem;
+  padding-bottom: 1rem;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 4rem;
+  color: var(--dark-grayish-blue);
+}
+
+.master-annual-sign {
+  font-size: 2.5rem;
+  position: absolute;
+  left: 90px;
+  top: 80px;
+  color: var(--dark-grayish-blue);
+}
+
+.master-monthly-sign {
+  left: 120px;
+}
+
+.master-plan a {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.7rem 6rem;
+  border-radius: 5px;
+  background-image: linear-gradient(
+    to right,
+    hsl(236, 72%, 79%),
+    hsl(237, 63%, 64%)
+  );
+  text-decoration: none;
+  text-transform: uppercase;
+  color: var(--very-light-grayish-blue);
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+  border-width: 2px;
+  border-style: solid;
+  transition-duration: 250ms;
+}
+
+.master-plan a:hover {
+  background-image: none;
+  background-color: #fff;
+  border: 2px solid hsl(237, 63%, 64%);
+  color: hsl(237, 63%, 64%);
+  transition-duration: 250ms;
+}
+
+.master-monthly {
+  display: none;
+  padding-left: 2rem;
+  padding-right: 3rem;
+  padding-bottom: 1rem;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 4rem;
+  color: var(--dark-grayish-blue);
+}
+/***** END MASTER PLAN *****/
+
+/**** MEDIA QUERIES ****/
+@media screen and (max-width: 1508px) {
+  main {
+    background-image: url("./images/bg-top.svg");
+    background-position: top right;
+    height: 1800px;
+  }
+  .hero-section {
+    padding-bottom: 0;
+  }
+  .basic-plan {
+    display: block;
+    right: 0;
+    margin-inline: auto;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding-top: 2rem;
+  }
+
+  .basic-annual-sign {
+    top: 110px;
+  }
+
+  .professional-plan {
+    display: block;
+    margin-inline: auto;
+    top: 60px;
+  }
+
+  .professional-annual-sign {
+    top: 110px;
+  }
+
+  .master-plan {
+    display: block;
+    margin-inline: auto;
+    top: 100px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    padding-top: 2rem;
+    left: 0;
+  }
+  .master-annual-sign {
+    top: 110px;
+  }
+}
+
+@media screen and (max-width: 614px) {
+  .basic-plan,
+  .professional-plan,
+  .master-plan {
+    margin-inline: 1.5rem;
+  }
+
+  .basic-annual-sign,
+  .professional-annual-sign,
+  .master-annual-sign {
+    font-size: 1.5rem;
+    top: 102px;
+    left: 170px;
+  }
+
+  .basic-price,
+  .professional-price,
+  .master-price {
+    font-size: 2rem;
+  }
+
+  .basic-monthly,
+  .professional-monthly,
+  .master-monthly {
+    font-size: 2rem;
+  }
+
+  .basic-monthly-sign,
+  .pro-monthly-sign,
+  .master-monthly-sign {
+    left: 180px;
+  }
+}
+
+@media screen and (max-width: 578px) {
+  .basic-plan,
+  .professional-plan,
+  .master-plan {
+    width: 400px;
+    margin-inline: 4rem;
+  }
+
+  .basic-annual-sign,
+  .professional-annual-sign,
+  .master-annual-sign {
+    left: 120px;
+  }
+  .basic-monthly-sign,
+  .pro-monthly-sign,
+  .master-monthly-sign {
+    left: 130px;
+  }
+}
+
+@media screen and (max-width: 514px) {
+  main {
+    height: 1500px;
+  }
+  .basic-plan,
+  .professional-plan,
+  .master-plan {
+    width: 300px;
+    margin-inline: 5.5rem;
+  }
+
+  .professional-plan {
+    height: 400px;
+  }
+  .basic-plan h2,
+  .professional-plan h2,
+  .master-plan h2 {
+    font-size: 1rem;
+  }
+
+  .basic-annual-sign,
+  .professional-annual-sign,
+  .master-annual-sign {
+    left: 70px;
+    top: 85px;
+  }
+
+  .basic-monthly-sign,
+  .pro-monthly-sign,
+  .master-monthly-sign {
+    left: 80px;
+    top: 80px;
+  }
+
+  .basic-plan a,
+  .professional-plan a,
+  .master-plan a {
+    font-size: 8.5px;
+  }
+}
+
+.display-none {
+  display: none;
+}
+
+.display-block {
+  display: block;
+}
